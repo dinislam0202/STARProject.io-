@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои мэтчи — STARProject</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { oilBlue: '#002147', energyOrange: '#FF8C00', deepDark: '#001529' },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #001529; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="min-h-screen bg-oilBlue">
+
+    <!-- Side Nav (Desktop) -->
+    <aside class="fixed left-0 top-0 h-full w-20 md:w-64 glass border-r border-white/5 hidden sm:flex flex-col p-6">
+        <div class="text-xl font-800 mb-12">STAR<span class="text-energyOrange">.</span></div>
+        <nav class="space-y-4 flex-1">
+            <a href="index.html" class="flex items-center gap-4 bg-energyOrange p-3 rounded-xl"><i class="fa-solid fa-house"></i> <span class="hidden md:inline">Главная</span></a>
+            <a href="chat.html" class="flex items-center gap-4 hover:bg-white/5 p-3 rounded-xl transition"><i class="fa-solid fa-message"></i> <span class="hidden md:inline">Сообщения</span></a>
+            <a href="profile.html" class="flex items-center gap-4 hover:bg-white/5 p-3 rounded-xl transition"><i class="fa-solid fa-user"></i> <span class="hidden md:inline">Профиль</span></a>
+        </nav>
+        <div class="pt-6 border-t border-white/10">
+            <a href="index.html" class="flex items-center gap-4 text-gray-500 hover:text-white transition"><i class="fa-solid fa-right-from-bracket"></i> <span class="hidden md:inline">Выход</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="sm:ml-20 md:ml-64 p-6 md:p-12">
+        <header class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="text-3xl font-800">Твои <span class="text-energyOrange">мэтчи</span></h1>
+                <p class="text-gray-400">Алгоритм подбирает соседей...</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden md:block">
+                    <p class="font-bold" id="userName">Студент</p>
+                    <p class="text-[10px] text-energyOrange uppercase" id="userCourse">... курс</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-energyOrange flex items-center justify-center font-bold" id="userInitial">?</div>
+            </div>
+        </header>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const fio = localStorage.getItem('star_user_fio') || 'Студент';
+                const course = localStorage.getItem('star_user_course') || '...';
+                
+                document.getElementById('userName').textContent = fio.split(' ')[0]; // Show first name
+                document.getElementById('userCourse').textContent = course + ' курс';
+                document.getElementById('userInitial').textContent = fio.substring(0, 1).toUpperCase();
+            });
+        </script>
+
+        <!-- Filter Pills -->
+        <div class="flex gap-4 mb-8 overflow-x-auto pb-2">
+            <span class="bg-energyOrange px-4 py-2 rounded-full text-xs font-bold shrink-0">Все</span>
+            <span class="glass px-4 py-2 rounded-full text-xs font-bold shrink-0">Бюджет до 15к</span>
+            <span class="glass px-4 py-2 rounded-full text-xs font-bold shrink-0">Некурящие</span>
+            <span class="glass px-4 py-2 rounded-full text-xs font-bold shrink-0">ФТТ</span>
+        </div>
+
+        <!-- Matches Grid -->
+        <div class="flex flex-col items-center justify-center py-20 opacity-50">
+            <div class="w-20 h-20 glass rounded-full flex items-center justify-center text-4xl mb-6 animate-pulse">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-2 uppercase tracking-widest">Поиск запущен</h2>
+            <p class="text-gray-400 max-w-sm text-center">
+                Мэтчи появятся после регистрации и верификации других студентов. <br>
+                Заходи чуть позже!
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

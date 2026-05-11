@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой профиль — STARProject</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { oilBlue: '#002147', energyOrange: '#FF8C00', deepDark: '#001529' } } }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #001529; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .profile-gradient { background: linear-gradient(180deg, #002147 0%, #001529 100%); }
+    </style>
+</head>
+<body class="min-h-screen bg-oilBlue">
+
+    <!-- Side Nav -->
+    <aside class="fixed left-0 top-0 h-full w-20 md:w-64 glass border-r border-white/5 flex flex-col p-6 z-50">
+        <div class="text-xl font-800 mb-12">STAR<span class="text-energyOrange">.</span></div>
+        <nav class="space-y-4 flex-1">
+            <a href="index.html" class="flex items-center gap-4 hover:bg-white/5 p-3 rounded-xl transition text-gray-400 hover:text-white"><i class="fa-solid fa-house"></i> <span class="hidden md:inline">Главная</span></a>
+            <a href="chat.html" class="flex items-center gap-4 hover:bg-white/5 p-3 rounded-xl transition text-gray-400 hover:text-white"><i class="fa-solid fa-message"></i> <span class="hidden md:inline">Сообщения</span></a>
+            <a href="#" class="flex items-center gap-4 bg-energyOrange p-3 rounded-xl text-white"><i class="fa-solid fa-user"></i> <span class="hidden md:inline">Профиль</span></a>
+        </nav>
+        <div class="pt-6 border-t border-white/10">
+            <a href="index.html" class="flex items-center gap-4 text-gray-500 hover:text-white transition"><i class="fa-solid fa-right-from-bracket"></i> <span class="hidden md:inline">Выход</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-20 md:ml-64 p-6 md:p-12">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header & Badge -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+                <div class="flex items-center gap-6">
+                    <div class="w-24 h-24 rounded-3xl bg-energyOrange flex items-center justify-center text-4xl font-800 shadow-xl shadow-energyOrange/20">
+                        АВ
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-800">Артём Воробьёв</h1>
+                        <div class="flex items-center gap-2 text-energyOrange mt-1">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span class="text-[10px] uppercase font-bold tracking-widest">Верифицировано УГНТУ</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="border border-energyOrange/50 text-energyOrange px-6 py-2 rounded-xl text-sm font-bold hover:bg-energyOrange hover:text-white transition">Редактировать анкету</button>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-blue-500">
+                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-2">Статус</p>
+                    <p class="font-bold">Студент УГНТУ</p>
+                    <p class="text-xs text-gray-400">3 курс, Очное</p>
+                </div>
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-green-500">
+                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-2">Бюджет</p>
+                    <p class="font-bold">12 000 — 15 000 ₽</p>
+                    <p class="text-xs text-gray-400">В месяц за комнату</p>
+                </div>
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-energyOrange">
+                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-2">Статус поиска</p>
+                    <p class="font-bold text-energyOrange">Активно ищу</p>
+                    <p class="text-xs text-gray-400">С 15 апреля 2026</p>
+                </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="max-w-2xl space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-list-check text-energyOrange"></i> Мои привычки
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="glass px-4 py-2 rounded-xl text-xs flex items-center gap-2"><i class="fa-solid fa-ban text-red-500"></i> Не курю</span>
+                        <span class="glass px-4 py-2 rounded-xl text-xs flex items-center gap-2"><i class="fa-solid fa-sun text-yellow-500"></i> Жаворонок</span>
+                        <span class="glass px-4 py-2 rounded-xl text-xs flex items-center gap-2"><i class="fa-solid fa-book text-blue-500"></i> Люблю тишину</span>
+                        <span class="glass px-4 py-2 rounded-xl text-xs flex items-center gap-2"><i class="fa-solid fa-broom text-green-500"></i> Соблюдаю чистоту</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-heart text-energyOrange"></i> Интересы
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Увлекаюсь спортивным программированием и баскетболом. Ищу соседа, который ценит личное пространство, но не против иногда заказать пиццу и обсудить пары или проекты.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fio = localStorage.getItem('star_user_fio') || 'Студент';
+            const uni = localStorage.getItem('star_user_uni') || 'УГНТУ';
+            const course = localStorage.getItem('star_user_course') || '...';
+            
+            document.getElementById('userFullName').textContent = fio;
+            document.getElementById('userUni').textContent = uni;
+            document.getElementById('userUniLabel').textContent = uni;
+            document.getElementById('userCourseLabel').textContent = course + ' курс, Очное';
+            
+            const initials = fio.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            document.getElementById('userInitialBig').textContent = initials || '?';
+        });
+    </script>
+</body>
+</html>                          <div class="text-[10px] bg-white/10 px-3 py-1 rounded-full font-bold">Студент УГНТУ</div>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-2">Артём, 21 год</h4>
+                            <p class="text-xs text-gray-500 mb-6">Ищу соседа в Черниковке или около ВДНХ. Бюджет до 15к.</p>
+                            <div class="flex gap-2">
+                                <div class="flex-1 bg-white/5 py-3 rounded-xl text-center text-xs font-bold group-hover:bg-energyOrange transition">Посмотреть анкету</div>
+                                <div class="w-12 bg-white/5 py-3 rounded-xl text-center group-hover:bg-white/10 transition"><i class="fa-solid fa-message"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
